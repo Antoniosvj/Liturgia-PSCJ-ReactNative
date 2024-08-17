@@ -1,20 +1,52 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Routes from './src/routes/Route';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
+  color = '#d82622'
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen 
+          name="Liturgia" 
+          component={Routes.Liturgia} 
+          options={{ 
+            headerShown:false,
+            tabBarLabel:'Liturgia',
+            tabBarLabelStyle: {fontSize:16, color: color},
+            tabBarIcon:() => (
+              <MaterialCommunityIcons name="book-outline" color={color} size={26} />
+
+            )
+          }}/>
+        <Tab.Screen 
+          name="Orações" 
+          component={Routes.Oracoes} 
+          options={{ 
+            headerShown:false,
+            tabBarLabel:'Orações',
+            tabBarLabelStyle: {fontSize:16, color: color},
+            tabBarIcon:() => (
+              <MaterialCommunityIcons name="home" color={color} size={26} />
+            )
+          }}/>
+        <Tab.Screen 
+          name="Devoções e Carismas" 
+          component={Routes.Devocoes} 
+          options={{ 
+            headerShown:false,
+            tabBarLabel:'Devoções e Carismas',
+            tabBarLabelStyle: {fontSize:16, color: color},
+            tabBarIcon:() => (
+              <MaterialCommunityIcons name="candle" color={color} size={26} />
+            ) 
+          }}/>
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
