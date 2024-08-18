@@ -9,7 +9,7 @@ export const globalStyles = StyleSheet.create({
   },
   text: {
     color: '#000',
-    fontSize:16,
+    fontSize:18,
     padding:8,
     textAlign:'justify',
   },
@@ -41,5 +41,37 @@ export const globalStyles = StyleSheet.create({
     fontSize:16,
     fontWeight:'500',
     textAlign:'center',
-  }
+  },
+  containerButtom: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+  containerText: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    height: "80%",
+    padding: 15,
+  },
+  titleTerco:{
+    color: '#d82622',
+    marginBottom: 20,
+    fontSize:26,
+    fontWeight:'bold',
+    fontWeight: '600',
+    textAlign:'center',
+  },
+  containerImage:{
+    width:'100%',
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  image:{
+    marginBottom:30,
+    padding:30,
+    resizeMode:'contain',
+    maxWidth:'100%',
+  },
+
 });

@@ -9,3 +9,4 @@ Este app inicialmente foi pensado como uma matéria de extensão da faculdade, p
 * npm install @react-navigation/bottom-tabs
 * npm install @react-navigation/native-stack
 
+

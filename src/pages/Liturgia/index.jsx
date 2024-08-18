@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { Text, View, TouchableOpacity, ScrollView } from "react-native";
 import { globalStyles } from "../../styles/style"; 
 
 export default function Liturgia() {
@@ -26,7 +26,7 @@ export default function Liturgia() {
 
   function PrimeiraLeitura({ liturgia }) {
     return (
-      <ScrollView style={styles.containerText}>
+      <ScrollView style={globalStyles.containerText}>
         <Text style={globalStyles.text}>
           {liturgia?.primeiraLeitura.titulo} (
           {liturgia?.primeiraLeitura.referencia})
@@ -38,7 +38,7 @@ export default function Liturgia() {
 
   function Salmo({ liturgia }) {
     return (
-      <ScrollView style={styles.containerText}>
+      <ScrollView style={globalStyles.containerText}>
         <Text style={globalStyles.text}>{liturgia?.salmo.referencia}</Text>
         <Text style={globalStyles.text}>{liturgia?.salmo.refrao}</Text>
         <Text style={globalStyles.text}>{liturgia?.salmo.texto}</Text>
@@ -50,7 +50,7 @@ export default function Liturgia() {
     // Verifica se a segunda leitura existe e tem conteúdo
     if (liturgia && liturgia.segundaLeitura && liturgia.segundaLeitura.texto) {
       return (
-        <ScrollView style={styles.containerText}>
+        <ScrollView style={globalStyles.containerText}>
           <Text style={globalStyles.text}>
             {liturgia.segundaLeitura.titulo} (
             {liturgia.segundaLeitura.referencia})
@@ -61,7 +61,7 @@ export default function Liturgia() {
     } else {
       // Retorna uma mensagem se não houver segunda leitura
       return (
-        <View style={styles.containerText}>
+        <View style={globalStyles.containerText}>
           <Text style={globalStyles.text}>Não há segunda leitura hoje!</Text>
         </View>
       );
@@ -70,7 +70,7 @@ export default function Liturgia() {
 
   function Evangelho({ liturgia }) {
     return (
-      <ScrollView style={styles.containerText} >
+      <ScrollView style={globalStyles.containerText} >
         <Text style={globalStyles.text}>
           {liturgia?.evangelho.titulo} ({liturgia?.evangelho.referencia})
         </Text>
@@ -82,7 +82,7 @@ export default function Liturgia() {
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.title}>Liturgia</Text>
-      <View style={styles.containerButtom}>
+      <View style={globalStyles.containerButtom}>
         <TouchableOpacity
           onPress={() => setConteudo(<PrimeiraLeitura liturgia={liturgia} />)}
         >
@@ -104,22 +104,7 @@ export default function Liturgia() {
           <Text style={globalStyles.subtitle}>Evangelho</Text>
         </TouchableOpacity>
       </View>
-      {conteudo || <ScrollView style={styles.containerText}></ScrollView>}
+      {conteudo || <ScrollView style={globalStyles.containerText}></ScrollView>}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  containerButtom: {
-    width: "100%",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-  },
-  containerText: {
-    backgroundColor: "#fff",
-    borderRadius: 12,
-    height: "80%",
-    padding: 15,
-  },
-});
